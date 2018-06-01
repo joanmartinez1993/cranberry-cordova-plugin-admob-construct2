@@ -442,43 +442,6 @@ public class AdMobOverlap implements PluginDelegate {
 		}		
 	}
     
-	public void _preloadRewardedVideoAd() {
-		rewardedVideoAdPreload = true;
-
-		loadRewardedVideoAd();
-	}
-	
-	public void loadRewardedVideoAd() {
-		if (rewardedVideo == null) {
-			//rewardedVideo = new RewardedVideoAd(plugin.getCordova().getActivity());
-			rewardedVideo = MobileAds.getRewardedVideoAdInstance(plugin.getCordova().getActivity());
-			//
-			//rewardedVideo.setAdUnitId(this.rewardedVideoAdUnit);
-			rewardedVideo.setRewardedVideoAdListener(new MyRewardedVideoListener());	
-		}		
-		
-		AdRequest.Builder builder = new AdRequest.Builder();
-		if(isTest) {
-			builder.addTestDevice(AdRequest.DEVICE_ID_EMULATOR); 
-			//builder.addTestDevice("INSERT_YOUR_HASHED_DEVICE_ID_HERE");				
-			String ANDROID_ID = Settings.Secure.getString(plugin.getCordova().getActivity().getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
-			String deviceId = Util.md5(ANDROID_ID).toUpperCase();
-			builder.addTestDevice(deviceId);		
-		}
-		AdRequest request = builder.build();			
-		rewardedVideo.loadAd(this.rewardedVideoAdUnit, request);		
-	}
-	
-	public void _showRewardedVideoAd() {
-		if(rewardedVideoAdPreload) {
-			rewardedVideoAdPreload = false;
-
-			rewardedVideo.show();
-		}
-		else {
-			loadRewardedVideoAd();
-		}		
-	}
 	
    //http://developer.android.com/reference/com/google/android/gms/ads/AdListener.html
     class MyBannerViewListener extends AdListener {

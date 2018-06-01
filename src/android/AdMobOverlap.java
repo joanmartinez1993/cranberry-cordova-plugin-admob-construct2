@@ -21,8 +21,6 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.android.gms.ads.reward.RewardItem;
 
 import android.view.View;
@@ -100,7 +98,6 @@ public class AdMobOverlap implements PluginDelegate {
 	//
 	protected String bannerAdUnit;
 	protected String interstitialAdUnit;
-	protected String rewardedVideoAdUnit;
 	protected boolean isOverlap;
 	protected boolean isTest;
 	//
@@ -110,12 +107,12 @@ public class AdMobOverlap implements PluginDelegate {
 	//
 	protected boolean bannerAdPreload;	
 	protected boolean interstitialAdPreload;
-	protected boolean rewardedVideoAdPreload;	
+		
 	//admob
 	protected RelativeLayout bannerViewLayout;
 	protected AdView bannerView;
 	protected InterstitialAd interstitial;
-	protected RewardedVideoAd rewardedVideo;
+	
 	
 	public AdMobOverlap(Plugin plugin_) {
 		plugin = plugin_;
@@ -124,10 +121,9 @@ public class AdMobOverlap implements PluginDelegate {
 	public void _setLicenseKey(String email, String licenseKey) {
 	}
 	
-	public void _setUp(String bannerAdUnit, String interstitialAdUnit, String rewardedVideoAdUnit, boolean isOverlap, boolean isTest) {
+	public void _setUp(String bannerAdUnit, String interstitialAdUnit, boolean isOverlap, boolean isTest) {
 		this.bannerAdUnit = bannerAdUnit;
-		this.interstitialAdUnit = interstitialAdUnit;
-		this.rewardedVideoAdUnit = rewardedVideoAdUnit;		
+		this.interstitialAdUnit = interstitialAdUnit;		
 		this.isOverlap = isOverlap;
 		this.isTest = isTest;			
 		

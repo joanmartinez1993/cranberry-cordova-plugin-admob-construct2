@@ -640,7 +640,7 @@ public class AdMobOverlap implements PluginDelegate {
 		}
 		@Override
 		public void onRewardedVideoCompleted() {
-  		  Toast.makeText(this, "onRewardedVideoCompleted", Toast.LENGTH_SHORT).show();
+  		  Log.d(LOG_TAG, String.format("%s", "onRewardedVideoCompleted"));
 	}
 		
 		@Override
